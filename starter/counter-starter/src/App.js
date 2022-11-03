@@ -21,9 +21,10 @@ function App() {
     newTodos[index].count += 1;
     
     setTodos(newTodos)
+
   }
 
-  const handleMinusCount = (index) => {
+  const handleSubtraction = (index) => {
     const newTodos = [...todos];
 
     newTodos[index].count -= 1;
@@ -61,7 +62,7 @@ function App() {
                   <div className="todo-icon-wrapper">
                     <div className="todo-count">{todo.count}</div>
 
-                    <button onClick={() => handleMinusCount(index)} className="todo-action-button">
+                    <button onClick={() => handleSubtraction(index)} className="todo-action-button">
                       <img src={minusIcon} alt="minus icon"/>
                     </button>
 
