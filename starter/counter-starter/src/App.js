@@ -46,7 +46,7 @@ function App() {
   const handleSubtraction = (index) => {
     const newTodos = [...todos];
 
-    if (newTodos[index].count > 1) {
+    if (newTodos[index].count > 0) {
       // jika jumlah count pada index melebihi nol, dikurang 1
       newTodos[index].count -= 1;
     } else {
@@ -55,6 +55,14 @@ function App() {
     }
 
     setTodos(newTodos)
+  }
+
+  const getTotalCounts = () => {
+    const totalCount = todos.reduce((total, num) => {
+      return total + num.count;
+    }, 0)
+
+    return totalCount;
   }
 
   return (
@@ -78,14 +86,14 @@ function App() {
 
         <div className="info">
           <div className="info-total">
-            <p>Total Count</p>
+            <p>{`Total List: ${todos.length}`}</p>
           </div>
 
           <div className="info-total">
-            <p>Total List</p>
-          </div>
+            <p>{`Total Count: ${getTotalCounts()}`}</p>
+          </div>        
 
-          <button className="delete-all-button">
+          <button onClick={() => setTodos([])} className="delete-all-button">
             Delete All List
           </button>
         </div>
