@@ -14,6 +14,25 @@ function App() {
     {title: 'Semangka', count: 1},
     {title: 'Keysa', count: 1}
   ])
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if(!value) {
+      console.log('No blank list!');
+      return;
+    }
+
+    const addedTodos = [...todos, {
+      title: value,
+      count: 1
+    }]
+
+    setTodos(addedTodos);
+    setValue('');
+  }
+  console.log(value)
+  console.log(todos)
   
   const handleAdditionCount = (index) => {
     const newTodos = [...todos];
@@ -40,7 +59,7 @@ function App() {
       </nav>
 
       <section className="container">
-        <form className="form">
+        <form className="form" onSubmit={handleSubmit}>
           <input 
             onChange={(e) => {setValue(e.target.value)}}
             value={value}
