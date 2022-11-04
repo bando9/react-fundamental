@@ -46,7 +46,13 @@ function App() {
   const handleSubtraction = (index) => {
     const newTodos = [...todos];
 
-    newTodos[index].count -= 1;
+    if (newTodos[index].count > 1) {
+      // jika jumlah count pada index melebihi nol, dikurang 1
+      newTodos[index].count -= 1;
+    } else {
+      // jika kurang dari 0, index dihapus dari array dengan index yang sesuai
+      newTodos.splice(index, 1)
+    }
 
     setTodos(newTodos)
   }
