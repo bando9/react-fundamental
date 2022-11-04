@@ -70,6 +70,20 @@ function App() {
           <button className="add-button" type="submit">add</button>
         </form>
 
+        <div className="info">
+          <div className="info-total">
+            <p>Total Count</p>
+          </div>
+
+          <div className="info-total">
+            <p>Total List</p>
+          </div>
+
+          <button className="delete-all-button">
+            Delete All List
+          </button>
+        </div>
+
         {todos.length > 0 ? (
           <div className="todos">
             {todos.map((todo, index, arr) => {
